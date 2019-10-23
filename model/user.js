@@ -34,7 +34,7 @@ const homepage = (request, response) => {
 const buypackage = (request, response) => {
   const pkgbody = request.body;
 
-  package.buypkg(pkgbodyq)
+  package.buypkg(pkgbody)
     .then(result => {
       response.status(200).json(result.data);
     })

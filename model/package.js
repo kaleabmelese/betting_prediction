@@ -5,12 +5,16 @@ const database = require("knex")(configuration); // define database based on abo
 const bcrypt = require("bcrypt"); // bcrypt will encrypt passwords to be saved in db
 const crypto = require("crypto"); // built-in encryption node module
 const dbexec = require("../database/dbexec")
+const payment = require("../payment/mekfeya")
 
 const package = (module.exports) = {
-    buypkg: pkgbody => {
+    buypkg: (pkgbody, from) => {
         //pkgtype 1=>daily package, 2=>weekly, 3=>monthly, 4=>semi annual and 5=>annual
-        return new Promise((resolve, reject) => {
+        return new Promise(async (resolve, reject) => {
             if (pkgbody.pkgtype === 1) {
+                from = "0924102910"
+                await payment.createInvoices(from)
+
                 const day = new Date();
                 var today = day.getFullYear() + "-" + (day.getMonth() + 1) + "-" + day.getDate();
                 const query = `SELECT * FROM predictions WHERE matchtime='${today}'`;
