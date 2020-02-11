@@ -1,7 +1,7 @@
 var { Client, Pool } = require("pg");
 const pg_configer = {
-  user: "kalpsql",
-  password: "kalpsql",
+  user: "kaleab",
+  password: "pgpasskal",
   host: "localhost",
   port: 5432,
   database: "bettbase"
