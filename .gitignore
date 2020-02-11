@@ -1,1 +1,4 @@
-.20190905120321_create-user-table,
+nodemodules/
+knex/
+database/
+.knexfile.js
