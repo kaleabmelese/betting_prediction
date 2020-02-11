@@ -1,5 +1,4 @@
 knex
 database
 payment
-.knexfile.js
 node_modules
